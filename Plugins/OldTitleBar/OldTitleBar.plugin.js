@@ -23,7 +23,7 @@ class OldTitleBar {
 				-webkit-app-region: no-drag;
 			}
 			
-			.settings-titlebar-OTB {
+			.settingsTitlebarOTB {
 				position: relative;
 				z-index: 1000;
 				text-align: right;
@@ -91,7 +91,7 @@ class OldTitleBar {
 
 	getDescription () {return "Reverts the title bar back to its former self.";}
 
-	getVersion () {return "1.4.2";}
+	getVersion () {return "1.4.4";}
 
 	getAuthor () {return "DevilBro";}
 
@@ -191,7 +191,7 @@ class OldTitleBar {
 		
 			$(BDFDB.dotCN.titlebar).addClass("hidden-by-OTB");
 			
-			var settingswindow = document.querySelector(BDFDB.dotCN.layers + "[layer-id]");
+			var settingswindow = document.querySelector(BDFDB.dotCN.layer + "[layer-id]");
 			if (settingswindow && BDFDB.getData("addToSettings", this, "settings")) {
 				this.addSettingsTitleBar(settingswindow);
 			}
@@ -276,7 +276,7 @@ class OldTitleBar {
 	
 	addSettingsTitleBar (settingspane) {
 		if (!settingspane.querySelector(".dividerOTB, .reloadButtonOTB, .minButtonOTB, .maxButtonOTB, .closeButtonOTB")) {
-			var settingsbar = $(`<div class="settings-titlebar-OTB"></div>`);
+			var settingsbar = $(`<div class="settingsTitlebarOTB"></div>`);
 			var settings = BDFDB.getAllData(this, "settings");
 			if (settings.reloadButton) {
 				settingsbar
@@ -336,7 +336,7 @@ class OldTitleBar {
 	}
 	
 	removeTitleBar () {
-		$(".headerbarOTB").remove();
+		$(".headerbarOTB, .settingsTitlebarOTB").remove();
 		var container = $(BDFDB.dotCNS.channelheaderheaderbardrag + BDFDB.dotCN.flex + " > " + BDFDB.dotCN.channelheadericonmargin).parent();
 		
 		container
