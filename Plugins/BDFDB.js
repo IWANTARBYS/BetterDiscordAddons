@@ -1006,12 +1006,7 @@ BDFDB.WebModules.monkeyPatch = function (internalModule, moduleFunction, {before
 		else {
 			if (before) suppressErrors(before, '`before` callback of ' + internalModule[moduleFunction].displayName)(data);
 			data.callOriginalMethod();
-			if (after) {
-				console.log(data);
-				console.log(moduleFunction);
-				console.log(internalModule);
-				suppressErrors(after, '`after` callback of ' + internalModule[moduleFunction].displayName)(data);
-			}
+			if (after) suppressErrors(after, '`after` callback of ' + internalModule[moduleFunction].displayName)(data);
 		}
 		if (once) cancel();
 		return data.returnValue;
