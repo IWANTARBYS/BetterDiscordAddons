@@ -987,9 +987,6 @@ BDFDB.WebModules.monkeyPatch = function (internalModule, moduleFunction, {before
 			return method(...params);
 		}
 		catch (e) {
-			console.log(...params);
-			console.log(method);
-			console.log(e);
 			console.error('Error occurred in ' + desiption, e);
 		}
 	};
@@ -1009,7 +1006,12 @@ BDFDB.WebModules.monkeyPatch = function (internalModule, moduleFunction, {before
 		else {
 			if (before) suppressErrors(before, '`before` callback of ' + internalModule[moduleFunction].displayName)(data);
 			data.callOriginalMethod();
-			if (after) suppressErrors(after, '`after` callback of ' + internalModule[moduleFunction].displayName)(data);
+			if (after) {
+				console.log(data);
+				console.log(moduleFunction);
+				console.log(internalModule);
+				suppressErrors(after, '`after` callback of ' + internalModule[moduleFunction].displayName)(data);
+			}
 		}
 		if (once) cancel();
 		return data.returnValue;
