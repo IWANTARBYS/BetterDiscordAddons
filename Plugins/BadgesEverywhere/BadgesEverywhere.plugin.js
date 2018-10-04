@@ -66,7 +66,7 @@ class BadgesEverywhere {
 
 	getDescription () {return "Displays Badges (Nitro, HypeSquad, etc...) in the chat/memberlist/userpopout. Thanks for Zerebos' help.";}
 
-	getVersion () {return "1.0.8";}
+	getVersion () {return "1.0.9";}
 
 	getAuthor () {return "DevilBro";}
 	
@@ -138,7 +138,7 @@ class BadgesEverywhere {
 						if (change.addedNodes) {
 							change.addedNodes.forEach((node) => {
 								if (BDFDB.getData("showInChat", this, "settings")) {
-									if (node.tagName && node.querySelector(BDFDB.dotCN.messageusernamewrapper)) {
+									if (node.tagName && node.querySelector(BDFDB.dotCN.messageusername)) {
 										this.addBadges(node, "chat", BDFDB.getDiscordMode() == "compact");
 									}
 								}
@@ -266,7 +266,10 @@ class BadgesEverywhere {
 	
 	addToWrapper (wrapper, id, type, settings) {
 		if (wrapper.querySelector(".BE-badge")) return; 
-		let memberwrap = wrapper.querySelector(BDFDB.dotCNC.memberusername + BDFDB.dotCNC.messageusernamewrapper + BDFDB.dotCN.nametag);
+		let memberwrap = wrapper.querySelector(BDFDB.dotCN.memberusername);
+		if (!memberwrap) memberwrap = wrapper.querySelector(BDFDB.dotCN.messageusername);
+		if (memberwrap) memberwrap = memberwrap.parentElement;
+		if (!memberwrap) memberwrap = wrapper.querySelector(BDFDB.dotCN.nametag);
 		if (memberwrap) for (let flag in this.badges) {
 			if ((this.loadedusers[id].flags | flag) == this.loadedusers[id].flags) {
 				let badge = document.createElement("div"); 

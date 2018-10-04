@@ -987,6 +987,9 @@ BDFDB.WebModules.monkeyPatch = function (internalModule, moduleFunction, {before
 			return method(...params);
 		}
 		catch (e) {
+			console.log(...params);
+			console.log(method);
+			console.log(e);
 			console.error('Error occurred in ' + desiption, e);
 		}
 	};

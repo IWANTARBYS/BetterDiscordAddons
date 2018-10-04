@@ -176,7 +176,7 @@ class EditUsers {
 
 	getDescription () {return "Allows you to change the icon, name, tag and color of users. Does not work in compact mode.";}
 
-	getVersion () {return "2.4.1";}
+	getVersion () {return "2.4.2";}
 
 	getAuthor () {return "DevilBro";}
 	
@@ -313,10 +313,8 @@ class EditUsers {
 					(change, i) => {
 						if (change.addedNodes) {
 							change.addedNodes.forEach((node) => {
-								if (BDFDB.getData("changeInChatWindow", this, "settings")) {
-									if (node && node.tagName && node.querySelector(BDFDB.dotCN.messageusernamewrapper)) {
-										this.loadUser(node, "chat", BDFDB.getDiscordMode() == "compact");
-									}
+								if (node && node.tagName && node.querySelector(BDFDB.dotCN.messageusername) && BDFDB.getData("changeInChatWindow", this, "settings")) {
+									this.loadUser(node, "chat", BDFDB.getDiscordMode() == "compact");
 								}
 							});
 						}

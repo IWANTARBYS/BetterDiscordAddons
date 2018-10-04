@@ -45,7 +45,7 @@ class TopRoleEverywhere {
 
 	getDescription () {return "Adds the highest role of a user as a tag.";}
 
-	getVersion () {return "2.7.0";}
+	getVersion () {return "2.7.1";}
 
 	getAuthor () {return "DevilBro";}
 	
@@ -117,7 +117,7 @@ class TopRoleEverywhere {
 						if (change.addedNodes) {
 							change.addedNodes.forEach((node) => {
 								if (BDFDB.getData("showInChat", this, "settings")) {
-									if (node && node.tagName && node.querySelector(BDFDB.dotCN.messageusernamewrapper)) {
+									if (node && node.tagName && node.querySelector(BDFDB.dotCN.messageusername)) {
 										this.addRoleTag(node, "chat", BDFDB.getDiscordMode() == "compact");
 									}
 								}
@@ -203,7 +203,9 @@ class TopRoleEverywhere {
 	addRoleTag (wrapper, type, compact) {
 		if (!wrapper || !BDFDB.getSelectedServer()) return;
 		var guild = this.GuildStore.getGuild(this.UserGuildState.getGuildId());
-		var member = wrapper.querySelector(BDFDB.dotCN.memberusername) || wrapper.querySelector(BDFDB.dotCN.messageusernamewrapper);
+		var member = wrapper.querySelector(BDFDB.dotCN.memberusername);
+		if (!member) member = wrapper.querySelector(BDFDB.dotCN.messageusername);
+		if (member) member = member.parentElement;
 		if (compact) wrapper = $(BDFDB.dotCN.messagegroup).has(wrapper)[0];
 		if (member && member.tagName && !member.querySelector(".TRE-tag")) {
 			var settings = BDFDB.getAllData(this, "settings");
