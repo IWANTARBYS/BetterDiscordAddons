@@ -3100,6 +3100,7 @@ BDFDB.DiscordClasses = {
 	contextmenuitemtoggle: "itemToggle-S7XGOQ",
 	contextmenuitemsubmenu: "itemSubMenu-1vN_Yn",
 	contextmenulabel: "label-JWQiNe",
+	cooldownwrapper: "cooldownWrapper-3joyFc",
 	cursordefault: "cursorDefault-3pPSRV",
 	cursorpointer: "cursorPointer-1ajlYk",
 	dark: "dark",
@@ -3989,16 +3990,16 @@ BDFDB.appendLocalStyle("BDFDB", `
 	.inputNumberWrapper .numberinput-button-up:hover {
 		border-bottom-color: #666;
 	}
-	.theme-light .inputNumberWrapper .numberinput-button-up {
+	${BDFDB.dotCN.themelight} .inputNumberWrapper .numberinput-button-up {
 		border-bottom-color: #dcddde;
 	}
-	.theme-light .inputNumberWrapper .numberinput-button-up:hover {
+	.${BDFDB.dotCN.themelight} .inputNumberWrapper .numberinput-button-up:hover {
 		border-bottom-color: #4f545c;
 	}
-	.theme-dark .inputNumberWrapper .numberinput-button-up {
+	.${BDFDB.dotCN.themedark} .inputNumberWrapper .numberinput-button-up {
 		border-bottom-color: #72767d;
 	}
-	.theme-dark .inputNumberWrapper .numberinput-button-up:hover {
+	.${BDFDB.dotCN.themedark} .inputNumberWrapper .numberinput-button-up:hover {
 		border-bottom-color: #f6f6f7;
 	}
 	.inputNumberWrapper .numberinput-button-down {
@@ -4010,16 +4011,16 @@ BDFDB.appendLocalStyle("BDFDB", `
 	.inputNumberWrapper .numberinput-button-down:hover {
 		border-top-color: #666;
 	}
-	.theme-light .inputNumberWrapper .numberinput-button-down {
+	.${BDFDB.dotCN.themelight} .inputNumberWrapper .numberinput-button-down {
 		border-top-color: #dcddde;
 	}
-	.theme-light .inputNumberWrapper .numberinput-button-down:hover {
+	.${BDFDB.dotCN.themelight} .inputNumberWrapper .numberinput-button-down:hover {
 		border-top-color: #4f545c;
 	}
-	.theme-dark .inputNumberWrapper .numberinput-button-down {
+	.${BDFDB.dotCN.themedark} .inputNumberWrapper .numberinput-button-down {
 		border-top-color: #72767d;
 	}
-	.theme-dark .inputNumberWrapper .numberinput-button-down:hover {
+	.${BDFDB.dotCN.themedark} .inputNumberWrapper .numberinput-button-down:hover {
 		border-top-color: #f6f6f7;
 	}
 	
